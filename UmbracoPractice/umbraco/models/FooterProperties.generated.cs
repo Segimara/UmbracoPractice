@@ -18,9 +18,19 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
+	// Mixin Content Type with alias "footerProperties"
+	/// <summary>Footer Properties</summary>
+	public partial interface IFooterProperties : IPublishedElement
+	{
+		/// <summary>some footer property</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		global::Umbraco.Cms.Core.Strings.IHtmlEncodedString SomeFooterProperty { get; }
+	}
+
 	/// <summary>Footer Properties</summary>
 	[PublishedModel("footerProperties")]
-	public partial class FooterProperties : PublishedElementModel
+	public partial class FooterProperties : PublishedElementModel, IFooterProperties
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -55,6 +65,11 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("someFooterProperty")]
-		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString SomeFooterProperty => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "someFooterProperty");
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString SomeFooterProperty => GetSomeFooterProperty(this, _publishedValueFallback);
+
+		/// <summary>Static getter for some footer property</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static global::Umbraco.Cms.Core.Strings.IHtmlEncodedString GetSomeFooterProperty(IFooterProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(publishedValueFallback, "someFooterProperty");
 	}
 }

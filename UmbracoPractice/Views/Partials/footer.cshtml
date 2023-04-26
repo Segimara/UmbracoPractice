@@ -1,3 +1,12 @@
-﻿@inherits UmbracoViewPage<IFooterProperties>
+﻿@inherits UmbracoViewPage
+@{
+    var settings = Umbraco.ContentAtRoot().OfType<Settings>().FirstOrDefault();
+    var footer = settings?.SomeFooterProperty;
+}
 
-<h3>@Model.SomeFooterProperty</h3>
+@if (settings == null)
+{
+    <p>settings are null</p>
+}
+
+<h3>@footer</h3>

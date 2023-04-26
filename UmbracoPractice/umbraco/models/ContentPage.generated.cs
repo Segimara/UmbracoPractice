@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>Content Page</summary>
 	[PublishedModel("contentPage")]
-	public partial class ContentPage : PublishedContentModel, IContentProperties, IHeaderProperties
+	public partial class ContentPage : PublishedContentModel, IContentProperties
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -56,29 +56,5 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("richText")]
 		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString RichText => global::Umbraco.Cms.Web.Common.PublishedModels.ContentProperties.GetRichText(this, _publishedValueFallback);
-
-		///<summary>
-		/// Background Content: Background image or video
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("backgroundContent")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops BackgroundContent => global::Umbraco.Cms.Web.Common.PublishedModels.HeaderProperties.GetBackgroundContent(this, _publishedValueFallback);
-
-		///<summary>
-		/// Subtitle: Header subtitle:
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("subtitle")]
-		public virtual string Subtitle => global::Umbraco.Cms.Web.Common.PublishedModels.HeaderProperties.GetSubtitle(this, _publishedValueFallback);
-
-		///<summary>
-		/// Title: Title for page:
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("title")]
-		public virtual string Title => global::Umbraco.Cms.Web.Common.PublishedModels.HeaderProperties.GetTitle(this, _publishedValueFallback);
 	}
 }

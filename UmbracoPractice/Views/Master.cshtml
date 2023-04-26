@@ -19,12 +19,18 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="/css/styles.css" rel="stylesheet" />
 </head>
+<style> 
+    body
+    {
+        background-color: #707070;
+    }
+</style>
 <body>
-    <partial name="appBar" />
+    <partial name = "header" />
     
     @RenderBody()
 
-   <!-- <partial name ="footer" /> -->
+   <partial name ="footer" /> 
 
     <script src="/_framework/aspnetcore-browser-refresh.js"></script>
     <!-- Bootstrap core JS-->

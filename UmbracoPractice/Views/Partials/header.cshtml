@@ -1,15 +1,54 @@
-﻿@inherits UmbracoViewPage<IHeaderProperties>
+﻿@inherits UmbracoViewPage
 
-<!-- Page Header-->
-<header class="masthead" style="background-image: url('@Model.BackgroundContent.Url()')">
-    <div class="container position-relative px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
-                <div class="site-heading">
-                    <h1>@Model.Title</h1>
-                    <span class="subheading">@Model.Subtitle</span>
-                </div>
-            </div>
+@{
+    var settings = Umbraco.ContentAtRoot().OfType<Settings>().FirstOrDefault();
+    var navigationItems = settings?.MainNavigation;
+}
+@if (settings == null)
+{
+    <p>settings are null</p>
+}
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                @if (navigationItems != null && navigationItems.Any())
+                {
+                    var dropdownId = 0;
+                    @foreach (var item in navigationItems)
+                    {
+                        if (item.Content is NavigationItem navigationItem)
+                        {
+                            var hasChildLinks = navigationItem.ChildLinks != null && navigationItem.ChildLinks.Any();
+                            if (hasChildLinks)
+                            {
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link px-lg-3 py-3 py-lg-4 dropdown-toggle" href="https://google.com" id="navbarDropdown@(dropdownId)" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        @navigationItem.Title
+                                    </a>
+                                    <ul class="dropdown-menu border-0" aria-labelledby="navbarDropdown@(dropdownId)">
+                                        @foreach (var childLink in navigationItem.ChildLinks)
+                                        {
+                                            <li><a class="dropdown-item" href="@childLink.Url" target="@childLink.Target">@childLink.Name</a></li>
+                                        }
+                                    </ul>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="@navigationItem.Link.Url">@navigationItem.Title</a></li>
+                            }
+                            dropdownId++;
+                        }
+                    }
+                }
+            </ul>
         </div>
     </div>
-</header>
+</nav>

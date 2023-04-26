@@ -22,20 +22,10 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 	/// <summary>Header Properties</summary>
 	public partial interface IHeaderProperties : IPublishedElement
 	{
-		/// <summary>Background Content</summary>
+		/// <summary>Logo</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		global::Umbraco.Cms.Core.Models.MediaWithCrops BackgroundContent { get; }
-
-		/// <summary>Subtitle</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		string Subtitle { get; }
-
-		/// <summary>Title</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		string Title { get; }
+		global::Umbraco.Cms.Core.Models.MediaWithCrops Logo { get; }
 	}
 
 	/// <summary>Header Properties</summary>
@@ -70,42 +60,16 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Background Content: Background image or video
+		/// Logo: Logo for header
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("backgroundContent")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops BackgroundContent => GetBackgroundContent(this, _publishedValueFallback);
+		[ImplementPropertyType("logo")]
+		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops Logo => GetLogo(this, _publishedValueFallback);
 
-		/// <summary>Static getter for Background Content</summary>
+		/// <summary>Static getter for Logo</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static global::Umbraco.Cms.Core.Models.MediaWithCrops GetBackgroundContent(IHeaderProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(publishedValueFallback, "backgroundContent");
-
-		///<summary>
-		/// Subtitle: Header subtitle:
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("subtitle")]
-		public virtual string Subtitle => GetSubtitle(this, _publishedValueFallback);
-
-		/// <summary>Static getter for Subtitle</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
-		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetSubtitle(IHeaderProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "subtitle");
-
-		///<summary>
-		/// Title: Title for page:
-		///</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
-		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("title")]
-		public virtual string Title => GetTitle(this, _publishedValueFallback);
-
-		/// <summary>Static getter for Title</summary>
-		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
-		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static string GetTitle(IHeaderProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "title");
+		public static global::Umbraco.Cms.Core.Models.MediaWithCrops GetLogo(IHeaderProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(publishedValueFallback, "logo");
 	}
 }
