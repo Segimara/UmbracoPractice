@@ -2,5 +2,6 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.HomePage>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
-    Layout = "AbstractHomePage.cshtml";
+    Layout = "Master.cshtml";
 }
+<h2>@Model.RichText</h2>

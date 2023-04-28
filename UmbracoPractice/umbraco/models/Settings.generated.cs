@@ -58,12 +58,12 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString SomeFooterProperty => global::Umbraco.Cms.Web.Common.PublishedModels.FooterProperties.GetSomeFooterProperty(this, _publishedValueFallback);
 
 		///<summary>
-		/// Logo: Logo for header
+		/// Logo text: Logo text
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("logo")]
-		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops Logo => global::Umbraco.Cms.Web.Common.PublishedModels.HeaderProperties.GetLogo(this, _publishedValueFallback);
+		[ImplementPropertyType("logoText")]
+		public virtual string LogoText => global::Umbraco.Cms.Web.Common.PublishedModels.HeaderProperties.GetLogoText(this, _publishedValueFallback);
 
 		///<summary>
 		/// Main Navigation

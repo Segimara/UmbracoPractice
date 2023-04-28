@@ -19,16 +19,16 @@ using Umbraco.Extensions;
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	// Mixin Content Type with alias "contentProperties"
-	/// <summary>Content Properties</summary>
+	/// <summary>Home Content Properties</summary>
 	public partial interface IContentProperties : IPublishedElement
 	{
-		/// <summary>rich Text</summary>
+		/// <summary>MainContent</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		global::Umbraco.Cms.Core.Strings.IHtmlEncodedString RichText { get; }
+		global::Umbraco.Cms.Core.Models.Blocks.BlockListModel MainContent { get; }
 	}
 
-	/// <summary>Content Properties</summary>
+	/// <summary>Home Content Properties</summary>
 	[PublishedModel("contentProperties")]
 	public partial class ContentProperties : PublishedElementModel, IContentProperties
 	{
@@ -60,16 +60,16 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// rich Text
+		/// MainContent
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("richText")]
-		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString RichText => GetRichText(this, _publishedValueFallback);
+		[ImplementPropertyType("mainContent")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel MainContent => GetMainContent(this, _publishedValueFallback);
 
-		/// <summary>Static getter for rich Text</summary>
+		/// <summary>Static getter for MainContent</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static global::Umbraco.Cms.Core.Strings.IHtmlEncodedString GetRichText(IContentProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(publishedValueFallback, "richText");
+		public static global::Umbraco.Cms.Core.Models.Blocks.BlockListModel GetMainContent(IContentProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(publishedValueFallback, "mainContent");
 	}
 }
