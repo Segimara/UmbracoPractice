@@ -18,9 +18,19 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
+	// Mixin Content Type with alias "descriptionProperties"
+	/// <summary>Description Properties</summary>
+	public partial interface IDescriptionProperties : IPublishedElement
+	{
+		/// <summary>Description</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string Description { get; }
+	}
+
 	/// <summary>Description Properties</summary>
 	[PublishedModel("descriptionProperties")]
-	public partial class DescriptionProperties : PublishedElementModel
+	public partial class DescriptionProperties : PublishedElementModel, IDescriptionProperties
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -55,6 +65,11 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("description")]
-		public virtual string Description => this.Value<string>(_publishedValueFallback, "description");
+		public virtual string Description => GetDescription(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Description</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetDescription(IDescriptionProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "description");
 	}
 }

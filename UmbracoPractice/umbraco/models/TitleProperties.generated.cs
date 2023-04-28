@@ -18,9 +18,19 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
+	// Mixin Content Type with alias "titleProperties"
+	/// <summary>Title Properties</summary>
+	public partial interface ITitleProperties : IPublishedElement
+	{
+		/// <summary>Title</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string Title { get; }
+	}
+
 	/// <summary>Title Properties</summary>
 	[PublishedModel("titleProperties")]
-	public partial class TitleProperties : PublishedElementModel
+	public partial class TitleProperties : PublishedElementModel, ITitleProperties
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -55,6 +65,11 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("title")]
-		public virtual string Title => this.Value<string>(_publishedValueFallback, "title");
+		public virtual string Title => GetTitle(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Title</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetTitle(ITitleProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "title");
 	}
 }

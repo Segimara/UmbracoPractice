@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>Settings</summary>
 	[PublishedModel("settings")]
-	public partial class Settings : PublishedContentModel, IFooterProperties, IHeaderProperties, ISiteNavigationProperties
+	public partial class Settings : PublishedContentModel, IFooterProperties, IHeaderProperties, IMetaDataProperties, ISiteNavigationProperties
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -66,11 +66,43 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		public virtual string LogoText => global::Umbraco.Cms.Web.Common.PublishedModels.HeaderProperties.GetLogoText(this, _publishedValueFallback);
 
 		///<summary>
-		/// Main Navigation
+		/// Meta Data Description
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("mainNavigation")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel MainNavigation => global::Umbraco.Cms.Web.Common.PublishedModels.SiteNavigationProperties.GetMainNavigation(this, _publishedValueFallback);
+		[ImplementPropertyType("metaDataDescription")]
+		public virtual string MetaDataDescription => global::Umbraco.Cms.Web.Common.PublishedModels.MetaDataProperties.GetMetaDataDescription(this, _publishedValueFallback);
+
+		///<summary>
+		/// Meta Data Keywords
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("metaDataKeywords")]
+		public virtual global::System.Collections.Generic.IEnumerable<string> MetaDataKeywords => global::Umbraco.Cms.Web.Common.PublishedModels.MetaDataProperties.GetMetaDataKeywords(this, _publishedValueFallback);
+
+		///<summary>
+		/// Page Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("pageTitle")]
+		public virtual string PageTitle => global::Umbraco.Cms.Web.Common.PublishedModels.MetaDataProperties.GetPageTitle(this, _publishedValueFallback);
+
+		///<summary>
+		/// Footer Navigation
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("footerNavigation")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel FooterNavigation => global::Umbraco.Cms.Web.Common.PublishedModels.SiteNavigationProperties.GetFooterNavigation(this, _publishedValueFallback);
+
+		///<summary>
+		/// Header Navigation
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("headerNavigation")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel HeaderNavigation => global::Umbraco.Cms.Web.Common.PublishedModels.SiteNavigationProperties.GetHeaderNavigation(this, _publishedValueFallback);
 	}
 }

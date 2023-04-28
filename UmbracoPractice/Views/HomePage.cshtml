@@ -4,4 +4,5 @@
 @{
     Layout = "Master.cshtml";
 }
-<h2>@Model.RichText</h2>
+
+@await Html.GetBlockListHtmlAsync(Model.MainContent)

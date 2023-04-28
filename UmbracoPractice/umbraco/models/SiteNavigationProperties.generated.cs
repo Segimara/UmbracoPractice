@@ -22,10 +22,15 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 	/// <summary>Site Navigation Properties</summary>
 	public partial interface ISiteNavigationProperties : IPublishedElement
 	{
-		/// <summary>Main Navigation</summary>
+		/// <summary>Footer Navigation</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		global::Umbraco.Cms.Core.Models.Blocks.BlockListModel MainNavigation { get; }
+		global::Umbraco.Cms.Core.Models.Blocks.BlockListModel FooterNavigation { get; }
+
+		/// <summary>Header Navigation</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		global::Umbraco.Cms.Core.Models.Blocks.BlockListModel HeaderNavigation { get; }
 	}
 
 	/// <summary>Site Navigation Properties</summary>
@@ -60,16 +65,29 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// Main Navigation
+		/// Footer Navigation
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("mainNavigation")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel MainNavigation => GetMainNavigation(this, _publishedValueFallback);
+		[ImplementPropertyType("footerNavigation")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel FooterNavigation => GetFooterNavigation(this, _publishedValueFallback);
 
-		/// <summary>Static getter for Main Navigation</summary>
+		/// <summary>Static getter for Footer Navigation</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static global::Umbraco.Cms.Core.Models.Blocks.BlockListModel GetMainNavigation(ISiteNavigationProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(publishedValueFallback, "mainNavigation");
+		public static global::Umbraco.Cms.Core.Models.Blocks.BlockListModel GetFooterNavigation(ISiteNavigationProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(publishedValueFallback, "footerNavigation");
+
+		///<summary>
+		/// Header Navigation
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("headerNavigation")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel HeaderNavigation => GetHeaderNavigation(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Header Navigation</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static global::Umbraco.Cms.Core.Models.Blocks.BlockListModel GetHeaderNavigation(ISiteNavigationProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(publishedValueFallback, "headerNavigation");
 	}
 }

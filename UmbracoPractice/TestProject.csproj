@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Our.Umbraco.BackOfficeThemes" Version="3.0.1" />
     <PackageReference Include="Umbraco.Cms" Version="11.3.0" />
     <PackageReference Include="Umbraco.Community.Contentment" Version="4.4.2" />
   </ItemGroup>

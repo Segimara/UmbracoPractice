@@ -2,14 +2,14 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
     Layout = null;
-    var settings = Umbraco.ContentAtRoot().OfType<HomePage>().FirstOrDefault().Children.OfType<Settings>().FirstOrDefault();
+    var settings = Umbraco.ContentAtRoot().DescendantsOrSelf<Settings>().FirstOrDefault();
 }
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
+    @await Component.InvokeAsync("MetaData", new { content =  @Model, settings = settings})
     <meta name="author" content="" />
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Font Awesome icons (free version)-->

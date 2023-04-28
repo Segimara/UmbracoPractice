@@ -11,8 +11,8 @@ public class HeaderViewComponent : ViewComponent
     {
         var model = new HeaderViewModel
         {
-            LogoText = settings.LogoText,
-            NavigationItems = settings.MainNavigation.Select(x => x.Content).OfType<NavigationItem>()
+            LogoText = settings?.LogoText,
+            NavigationItems = settings?.HeaderNavigation.Select(x => x.Content).OfType<NavigationItem>()
         };
 
         return View(model);
