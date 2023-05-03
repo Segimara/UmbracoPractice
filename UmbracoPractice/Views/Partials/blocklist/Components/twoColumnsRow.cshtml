@@ -1,0 +1,34 @@
+﻿@inherits UmbracoViewPage<BlockListItem>
+
+@{
+    var row = (TwoColumnsRow)Model.Content;
+    if (row == null)
+    {
+        return;
+    }
+    var cards = row.Cards;
+}
+
+<div class="container mt-5">
+    <div class="row flex-wrap justify-content-center d-flex">
+        @if (!string.IsNullOrWhiteSpace(row.Title))
+        {
+            <h2 class="text-center">@row.Title</h2>
+        }
+        @if (!string.IsNullOrWhiteSpace(row.Description))
+        {
+            <p class="text-center">@row.Description</p>
+        }
+        @if (row.Cards != null && row.Cards.Any())
+        {
+            @foreach (var item in row.Cards)
+            {
+                <div class="col-md-6 mb-4 d-flex justify-content-center">
+                    <div class="my-3">
+                        @await Html.PartialAsync("blocklist/Components/" + item.Content.ContentType.Alias, item)
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

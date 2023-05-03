@@ -2,14 +2,29 @@
 
 @{
     var row = (HeadlineAboveMediaBackgroundRow)Model.Content;
-
+    if (row == null)
+    {
+        return;
+    }
 }
 
-<div class="bg-media">
-    <div class="overlay d-flex justify-content-center align-items-center">
-        <div class="media-content text-center text-white">
-            <h1 class="display-4">@row.Title</h1>
-            <p class="lead">@row.Description</p>
+<div class="overflow-hidden">
+    <div class="bg-media">
+        <div class="overlay d-flex justify-content-center align-items-center">
+            <div class="media-content text-center text-white">
+                @if (!string.IsNullOrWhiteSpace(row.Title))
+                {
+                    <h1 class="display-4"><b>@row.Title</b></h1>
+                }
+                else
+                {
+                    <h1></h1>
+                }
+                @if (!string.IsNullOrWhiteSpace(row.Description))
+                {
+                    <p class="lead">@row.Description</p>
+                }
+            </div>
         </div>
     </div>
 </div>
@@ -30,8 +45,24 @@
         left: 0;
         width: 100vw;
         height: 95vh;
-        background-image: url(@row.ImageOrVideoBackground.Url());
         background-size: cover;
         background-position: center;
     }
 </style>
+
+@if (row.ImageOrVideoBackground != null)
+{
+    <style>
+        .bg-media {
+            background-image: url(@row.ImageOrVideoBackground.Url());
+        }
+    </style>
+}
+else
+{
+    <style>
+        .bg-media {
+            background-color: #fff;
+        }
+    </style>
+}

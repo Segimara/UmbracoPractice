@@ -14,7 +14,7 @@ namespace TestProject.Components
             {
                 Title = content.Value<string>("pageTitle"),
                 Description = content.Value<string>("metaDataDescription"),
-                Keywords = string.Join(", ", content.Value<string>("metaDataKeywords"))
+                Keywords = string.Join(", ", content.Value<string[]>("metaDataKeywords"))
             };
             if (string.IsNullOrWhiteSpace(metadata.Title))
             {
