@@ -50,12 +50,20 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// some footer property
+		/// FooterDescriprion
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("someFooterProperty")]
-		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString SomeFooterProperty => global::Umbraco.Cms.Web.Common.PublishedModels.FooterProperties.GetSomeFooterProperty(this, _publishedValueFallback);
+		[ImplementPropertyType("footerDescriprion")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString FooterDescriprion => global::Umbraco.Cms.Web.Common.PublishedModels.FooterProperties.GetFooterDescriprion(this, _publishedValueFallback);
+
+		///<summary>
+		/// FooterLogoText
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("footerLogoText")]
+		public virtual string FooterLogoText => global::Umbraco.Cms.Web.Common.PublishedModels.FooterProperties.GetFooterLogoText(this, _publishedValueFallback);
 
 		///<summary>
 		/// Logo text: Logo text

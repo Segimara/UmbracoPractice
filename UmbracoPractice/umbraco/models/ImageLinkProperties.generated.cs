@@ -18,9 +18,19 @@ using Umbraco.Extensions;
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
+	// Mixin Content Type with alias "imageLinkProperties"
+	/// <summary>Image Link Properties</summary>
+	public partial interface IImageLinkProperties : IPublishedElement
+	{
+		/// <summary>Image Links</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		global::Umbraco.Cms.Core.Models.Blocks.BlockListModel ImageLinks { get; }
+	}
+
 	/// <summary>Image Link Properties</summary>
 	[PublishedModel("imageLinkProperties")]
-	public partial class ImageLinkProperties : PublishedElementModel
+	public partial class ImageLinkProperties : PublishedElementModel, IImageLinkProperties
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -55,6 +65,11 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("imageLinks")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel ImageLinks => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "imageLinks");
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel ImageLinks => GetImageLinks(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Image Links</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static global::Umbraco.Cms.Core.Models.Blocks.BlockListModel GetImageLinks(IImageLinkProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(publishedValueFallback, "imageLinks");
 	}
 }

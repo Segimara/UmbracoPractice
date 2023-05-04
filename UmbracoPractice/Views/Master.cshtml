@@ -3,13 +3,17 @@
 @{
     Layout = null;
     var settings = Umbraco.ContentAtRoot().DescendantsOrSelf<Settings>().FirstOrDefault();
+    var page = UmbracoContext.PublishedRequest.PublishedContent;
 }
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    @await Component.InvokeAsync("MetaData", new { content =  @Model, settings = settings})
+    @if (settings != null)
+    {
+        @await Component.InvokeAsync("MetaData", new { content =  @Model, settings = settings})
+    }
     <meta name="author" content="" />
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Font Awesome icons (free version)-->
@@ -21,20 +25,25 @@
     <link href="/css/styles.css" rel="stylesheet" />
     <link href="/css/navigation.css" rel="stylesheet" />
 </head>
-<style> 
-    body
-    {
+<style>
+    body {
         background-color: #707070;
     }
 </style>
 <body>
-    @Model.Cul
-    @await Component.InvokeAsync("Header", settings)
-    
-    @RenderBody()
+    <div>
+        @if (settings != null)
+        {
+            @await Component.InvokeAsync("Header", settings)
+        }
 
-    @await Component.InvokeAsync("Footer", settings)
+        @RenderBody()
 
+        @if (settings != null)
+        {
+            @await Component.InvokeAsync("Footer", new {settings = settings, page = page})
+        }
+    </div>
     <script src="/_framework/aspnetcore-browser-refresh.js"></script>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

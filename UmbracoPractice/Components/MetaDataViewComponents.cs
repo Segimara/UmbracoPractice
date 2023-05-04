@@ -28,6 +28,7 @@ namespace TestProject.Components
             {
                 metadata.Keywords = string.Join(",", settings.MetaDataKeywords);
             }
+            // ReSharper disable once Mvc.ViewComponentViewNotResolved
             return View(metadata);
         }
     }

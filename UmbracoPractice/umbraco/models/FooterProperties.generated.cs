@@ -22,10 +22,15 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 	/// <summary>Footer Properties</summary>
 	public partial interface IFooterProperties : IPublishedElement
 	{
-		/// <summary>some footer property</summary>
+		/// <summary>FooterDescriprion</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		global::Umbraco.Cms.Core.Strings.IHtmlEncodedString SomeFooterProperty { get; }
+		global::Umbraco.Cms.Core.Strings.IHtmlEncodedString FooterDescriprion { get; }
+
+		/// <summary>FooterLogoText</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string FooterLogoText { get; }
 	}
 
 	/// <summary>Footer Properties</summary>
@@ -60,16 +65,29 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		// properties
 
 		///<summary>
-		/// some footer property
+		/// FooterDescriprion
 		///</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		[ImplementPropertyType("someFooterProperty")]
-		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString SomeFooterProperty => GetSomeFooterProperty(this, _publishedValueFallback);
+		[ImplementPropertyType("footerDescriprion")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString FooterDescriprion => GetFooterDescriprion(this, _publishedValueFallback);
 
-		/// <summary>Static getter for some footer property</summary>
+		/// <summary>Static getter for FooterDescriprion</summary>
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
-		public static global::Umbraco.Cms.Core.Strings.IHtmlEncodedString GetSomeFooterProperty(IFooterProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(publishedValueFallback, "someFooterProperty");
+		public static global::Umbraco.Cms.Core.Strings.IHtmlEncodedString GetFooterDescriprion(IFooterProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(publishedValueFallback, "footerDescriprion");
+
+		///<summary>
+		/// FooterLogoText
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("footerLogoText")]
+		public virtual string FooterLogoText => GetFooterLogoText(this, _publishedValueFallback);
+
+		/// <summary>Static getter for FooterLogoText</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetFooterLogoText(IFooterProperties that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "footerLogoText");
 	}
 }
