@@ -19,7 +19,7 @@ using Umbraco.Extensions;
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	// Mixin Content Type with alias "imageLinkProperties"
-	/// <summary>Image Link Properties</summary>
+	/// <summary>Image Links Properties</summary>
 	public partial interface IImageLinkProperties : IPublishedElement
 	{
 		/// <summary>Image Links</summary>
@@ -28,7 +28,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		global::Umbraco.Cms.Core.Models.Blocks.BlockListModel ImageLinks { get; }
 	}
 
-	/// <summary>Image Link Properties</summary>
+	/// <summary>Image Links Properties</summary>
 	[PublishedModel("imageLinkProperties")]
 	public partial class ImageLinkProperties : PublishedElementModel, IImageLinkProperties
 	{

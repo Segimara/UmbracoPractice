@@ -2,67 +2,85 @@
 
 @{
     var row = (HeadlineAboveMediaBackgroundRow)Model.Content;
-    if (row == null)
-    {
-        return;
-    }
+
 }
-
-<div class="overflow-hidden">
-    <div class="bg-media">
-        <div class="overlay d-flex justify-content-center align-items-center">
-            <div class="media-content text-center text-white">
-                @if (!string.IsNullOrWhiteSpace(row.Title))
-                {
-                    <h1 class="display-4"><b>@row.Title</b></h1>
-                }
-                else
-                {
-                    <h1></h1>
-                }
-                @if (!string.IsNullOrWhiteSpace(row.Description))
-                {
-                    <p class="lead">@row.Description</p>
-                }
-            </div>
-        </div>
-    </div>
-</div>
-
-<style>
-    .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .bg-media {
-        position: relative;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 95vh;
-        background-size: cover;
-        background-position: center;
-    }
-</style>
-
-@if (row.ImageOrVideoBackground != null)
+@if (row == null || row.ImageOrVideoBackground == null)
 {
-    <style>
-        .bg-media {
-            background-image: url(@row.ImageOrVideoBackground.Url());
+    <div style="height: 75px; width:100%; background: rgba(0,0,0,0.9); margin-bottom: 75px;"></div>
+    <div class="container justify-content-center">
+        @if (!string.IsNullOrWhiteSpace(row.Title))
+        {
+            <h1 class="display-4 text-center"><b>@row.Title</b></h1>
         }
-    </style>
+        else
+        {
+            <h1></h1>
+        }
+        @if (!string.IsNullOrWhiteSpace(row.Description))
+        {
+            <p class="lead">@row.Description</p>
+        }
+    </div>
 }
 else
 {
+
+    <div class="overflow-hidden">
+        <div class="bg-media">
+            <div class="overlay d-flex justify-content-center align-items-center">
+                <div class="media-content text-center text-white">
+                    @if (!string.IsNullOrWhiteSpace(row.Title))
+                    {
+                        <h1 class="display-4"><b>@row.Title</b></h1>
+                    }
+                    else
+                    {
+                        <h1></h1>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(row.Description))
+                    {
+                        <p class="lead">@row.Description</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
     <style>
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
         .bg-media {
-            background-color: #fff;
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 95vh;
+            background-size: cover;
+            background-position: center;
         }
     </style>
+
+    @if (row.ImageOrVideoBackground != null)
+    {
+        <style>
+            .bg-media {
+                background-image: url(@row.ImageOrVideoBackground.Url());
+            }
+        </style>
+    }
+    else
+    {
+        <style>
+            .bg-media {
+                background-color: #fff;
+            }
+        </style>
+    }
 }

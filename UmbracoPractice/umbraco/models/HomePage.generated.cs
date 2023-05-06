@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>Home Page</summary>
 	[PublishedModel("homePage")]
-	public partial class HomePage : PublishedContentModel, IMetaDataProperties
+	public partial class HomePage : PublishedContentModel, IHeroContentProperties, IMainContentProperties, IMetaDataProperties
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -55,7 +55,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("heroContent")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel HeroContent => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "heroContent");
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel HeroContent => global::Umbraco.Cms.Web.Common.PublishedModels.HeroContentProperties.GetHeroContent(this, _publishedValueFallback);
 
 		///<summary>
 		/// Main Content
@@ -63,7 +63,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "11.3.0+a1d6f65")]
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("mainContent")]
-		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel MainContent => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "mainContent");
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel MainContent => global::Umbraco.Cms.Web.Common.PublishedModels.MainContentProperties.GetMainContent(this, _publishedValueFallback);
 
 		///<summary>
 		/// Meta Data Description

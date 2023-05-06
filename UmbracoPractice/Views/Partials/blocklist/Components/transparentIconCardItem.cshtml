@@ -1,0 +1,30 @@
+﻿@inherits UmbracoViewPage<BlockListItem>
+
+@{
+    var row = (TransparentIconCardItem)Model.Content;
+    var settings = (TransparentIconCardItemSettings)Model.Settings;
+    if (row == null || settings.Hide)
+    {
+        return;
+    }
+}
+<div class="card text-center">
+    <div class="card-body">
+        @if (row.ImageOrIcon != null && !string.IsNullOrWhiteSpace(row.ImageOrIcon.Url()))
+        {
+            <div style="max-height:220px; width: auto">
+                <img src="@row.ImageOrIcon.GetCropUrl(width: 226, height: 226)" class="card-img-top h-100 w-auto" alt="...">
+            </div>
+        }
+        <div class ="py-5">
+            @if (!string.IsNullOrWhiteSpace(row.Title))
+            {
+                <h5 class="card-title">@row.Title</h5>
+            }
+            @if (!string.IsNullOrWhiteSpace(row.Description))
+            {
+                <p class="card-text">@row.Description</p>
+            }
+        </div>
+    </div>
+</div>

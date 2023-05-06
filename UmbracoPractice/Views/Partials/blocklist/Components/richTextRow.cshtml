@@ -2,7 +2,8 @@
 
 @{
     var row = (RichTextRow)Model.Content;
-    if (row == null)
+    var settings = (RichTextRowSettings)Model.Settings;
+    if (row == null || settings.Hide)
     {
         return;
     }

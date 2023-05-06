@@ -15,7 +15,6 @@ public class HeaderViewComponent : ViewComponent
             NavigationItems = settings?.HeaderNavigation.Select(x => x.Content).OfType<NavigationItem>()
         };
 
-        // ReSharper disable once Mvc.ViewComponentViewNotResolved
         return View(model);
     }
 }

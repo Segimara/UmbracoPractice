@@ -1,21 +1,22 @@
 ﻿@model FooterViewModel
 @{
+    var isDropDown = Model.LanguagesAndRedirectUrls != null && Model.LanguagesAndRedirectUrls.Any();
 }
 
 
 
-<footer class="w-100" style="background-color: rgba(0, 0, 0, 0.1) !important;">
-    <div class="container">
-        <div class="col-md-4 col-6">
+<footer class="w-100 navbar pt-5" style="background-color: rgba(0, 0, 0, 0.1) !important;">
+    <div class="container align-items-start justify-content-start">
+        <div class="col-md-3 col-4">
             <h3>@Model.LogoText</h3>
             <div class="my-3 text-break text-break fs-6">
                 @Html.Raw(Model.Description)
             </div>
-            <div class="dropdown my-3">
-                <a class="btn dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="@(isDropDown ? "dropup" : "")  my-3">
+                <a class="btn p-0 dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <span>@Model.CurrentLanguage</span>
                 </a>
-                @if (Model.LanguagesAndRedirectUrls != null && Model.LanguagesAndRedirectUrls.Any())
+                @if (isDropDown)
                 {
                     <div class="dropdown-menu border-0" aria-labelledby="dropdownMenuButton">
                         @foreach (var (language, redirectUrl) in Model.LanguagesAndRedirectUrls)
@@ -25,6 +26,35 @@
                     </div>
                 }
             </div>
+        </div>
+        <div class="col-md-9 col-8 row px-3">
+            @if (Model.NavigationItems != null && Model.NavigationItems.Any())
+            {
+                @foreach (var navigationItem in Model.NavigationItems)
+                {
+                    <div class ="col-md-4 col-6">
+                        @if (navigationItem.Link != null)
+                        {
+                            @:<a class="" href="@navigationItem.Link.Url">
+                        }
+                            <strong>@navigationItem.Title</strong>
+                        @if (navigationItem.Link != null)
+                        {
+                            @:</a>
+                        }
+                        @{var hasChildLinks = navigationItem.ChildLinks != null && navigationItem.ChildLinks.Any();}
+                        @if (hasChildLinks)
+                        {
+                            @foreach (var childLink in navigationItem.ChildLinks)
+                            {
+                                <div>
+                                    <a class="" href="@childLink.Url" target="@childLink.Target">@childLink.Name</a>
+                                </div>
+                            }
+                        }
+                    </div>
+                }
+            }
         </div>
     </div>
 </footer>

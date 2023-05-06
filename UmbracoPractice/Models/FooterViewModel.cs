@@ -1,4 +1,5 @@
 ﻿using Umbraco.Cms.Core.Strings;
+using Umbraco.Cms.Web.Common.PublishedModels;
 
 namespace TestProject.Models
 {
@@ -8,5 +9,6 @@ namespace TestProject.Models
         public IHtmlEncodedString Description { get; set; }
         public string CurrentLanguage { get; set; }
         public Dictionary<string, string> LanguagesAndRedirectUrls { get; set; }
+        public IEnumerable<NavigationItem> NavigationItems { get; set; }
     }
 }

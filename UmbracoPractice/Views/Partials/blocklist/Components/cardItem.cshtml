@@ -2,13 +2,14 @@
 
 @{
     var row = (CardItem)Model.Content;
-    if (row == null)
+    var settings = (CardItemSettings)Model.Settings;
+    if (row == null || settings == null || settings.Hide)
     {
         return;
     }
 }
 
-<div class="card w-100">
+<div class="card w-100 h-100 pb-3">
     @if (row.Image != null && !string.IsNullOrWhiteSpace(row.Image.Url()))
     {
         <img src="@row.Image.GetCropUrl(width: 544, height: 343)" class="card-img-top" alt="...">

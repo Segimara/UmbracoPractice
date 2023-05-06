@@ -1,0 +1,49 @@
+﻿@inherits UmbracoViewPage<BlockListItem>
+
+@{
+    var row = (ThreeColumnsTransparentCardsRow)Model.Content;
+    var settings = (ThreeColumnsTransparentCardsRowSettings)Model.Settings;
+    if (row == null || settings.Hide)
+    {
+        return;
+    }
+    BlockListModel cards = null;
+    if (row.Cards != null && row.Cards.Any())
+    {
+        cards = row.Cards;
+    }
+}
+<style>
+    .transparentCard .card {
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+    }
+</style>
+<div class="w-100 py-5" style="background-color: #e6e9ee;">
+    <div class="container">
+        <div class="row flex-wrap justify-content-center d-flex">
+            @if (!string.IsNullOrWhiteSpace(row.Title))
+            {
+                <h2 class="text-center">@row.Title</h2>
+            }
+            @if (!string.IsNullOrWhiteSpace(row.Description))
+            {
+                <p class="text-center">@row.Description</p>
+            }
+            <div>
+                @if (cards != null)
+                {
+                    <div class="d-flex flex-wrap flex-row justify-content-center transparentCard card-group">
+                        @foreach (var item in cards)
+                        {
+                            <div class="m-3 col-md-3 col-6">
+                                @await Html.PartialAsync("blocklist/Components/" + item.Content.ContentType.Alias, item)
+                            </div>
+                            <div class="col-md-1 col-12"></div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

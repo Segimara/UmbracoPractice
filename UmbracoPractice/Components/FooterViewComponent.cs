@@ -40,7 +40,8 @@ public class FooterViewComponent : ViewComponent
             LogoText = !string.IsNullOrWhiteSpace(settings.FooterLogoText) ? settings.FooterLogoText : settings.LogoText,
             Description = settings.FooterDescriprion,
             CurrentLanguage = currentLanguage,
-            LanguagesAndRedirectUrls = languagesAndRedirectUrls
+            LanguagesAndRedirectUrls = languagesAndRedirectUrls,
+            NavigationItems = settings?.FooterNavigation.Select(x => x.Content).OfType<NavigationItem>()
         };
 
         // ReSharper disable once Mvc.ViewComponentViewNotResolved

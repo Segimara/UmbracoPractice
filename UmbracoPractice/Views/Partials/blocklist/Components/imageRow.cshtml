@@ -2,12 +2,33 @@
 
 @{
     var row = (ImageRow)Model.Content;
-    if (row == null || row.Image == null)
+    var settings = (ImageRowSettings)Model.Settings;
+    if (row == null || row.Image == null || settings.Hide)
     {
         return;
     }
 }
+<div class = "container">
+    <div class="row  gx-4 gx-lg-5 my-5 justify-content-center">
+        @if (!string.IsNullOrWhiteSpace(row.Title))
+        {
+            <h2 class="text-start">@row.Title</h2>
+        }
+        @if (!string.IsNullOrWhiteSpace(row.Description))
+        {
+            <p class="text-start">@row.Description</p>
+        }
+        <div class="col-md-10 col-lg-8 col-xl-7">
 
-<div class="container">
-    <img src="@row.Image.Url() " class="img-fluid" alt="...">
+            @if (row.Link != null)
+            {
+                @:<a href="@row.Link.Url" class="w-100">
+            }
+                    <img src="@row.Image.Url() " class="img-fluid w-100" alt="...">
+            @if (row.Link != null)
+            {
+                @:</a>
+            }
+        </div>
+    </div>
 </div>

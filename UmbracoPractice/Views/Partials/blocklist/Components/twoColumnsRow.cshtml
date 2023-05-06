@@ -2,14 +2,15 @@
 
 @{
     var row = (TwoColumnsRow)Model.Content;
-    if (row == null)
+    var settings = (TwoColumnsRowSettings)Model.Settings;
+    if (row == null || settings.Hide)
     {
         return;
     }
     var cards = row.Cards;
 }
 
-<div class="container mt-5">
+<div class="container py-5">
     <div class="row flex-wrap justify-content-center d-flex">
         @if (!string.IsNullOrWhiteSpace(row.Title))
         {
@@ -21,14 +22,14 @@
         }
         @if (row.Cards != null && row.Cards.Any())
         {
-            @foreach (var item in row.Cards)
-            {
-                <div class="col-md-6 mb-4 d-flex justify-content-center">
-                    <div class="my-3">
+            <div class="card-group">
+                @foreach (var item in row.Cards)
+                {
+                    <div class="col-md-6 col-12 p-2 d-flex justify-content-center">
                         @await Html.PartialAsync("blocklist/Components/" + item.Content.ContentType.Alias, item)
                     </div>
-                </div>
-            }
+                }
+            </div>
         }
     </div>
 </div>

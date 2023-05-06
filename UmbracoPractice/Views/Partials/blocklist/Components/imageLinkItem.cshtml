@@ -2,4 +2,22 @@
 
 @{
     var row = (ImageLinkItem)Model.Content;
+    var settings = (ImageLinkItemSettings)Model.Settings;
+    if (row == null || settings == null || settings.Hide)
+    {
+        return;
+    }
 }
+   
+<div>
+    @if (row.Url != null && !string.IsNullOrWhiteSpace(@row.Image.Url()))
+    {
+        @:<a href="@row.Url.Url" class="w-100 h-auto">
+    }
+        <img src="@row.Image.Url() " class="img w-100 h-auto" alt="...">
+    
+        @if (row.Url != null && !string.IsNullOrWhiteSpace(@row.Image.Url()))
+    {
+        @:</a>
+    }
+</div>
