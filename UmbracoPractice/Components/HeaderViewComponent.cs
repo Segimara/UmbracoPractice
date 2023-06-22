@@ -8,6 +8,7 @@ namespace TestProject.Components;
 public class HeaderViewComponent : ViewComponent
 {
     public IViewComponentResult Invoke(Settings settings)
+
     {
         var model = new HeaderViewModel
         {
